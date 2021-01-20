@@ -1,2 +1,2 @@
 # Gallery_img
-easy image gallery
+My first image gallery
