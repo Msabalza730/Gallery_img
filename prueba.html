@@ -1,0 +1,399 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" media="only screen and (max-width: 480px)"  href="/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
+    <title>Mar Gallery</title>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.dataTables.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+   
+</head>
+<style  type="text/css" media="screen">
+  * {
+    box-sizing: border-box;
+  }
+  
+  header{
+    height: 100px;
+    padding: 0px 300px 0px 300px;  /*top right buttom left*/
+    background-color: steelblue;
+}    
+
+/* TITULO*/
+body {
+    font-family: 'Sofia';font-size: 22px;
+    background-color: ivory;
+    
+}
+
+
+/* BARRA CABECERA */
+.conten-header{
+  display: inline-flex;
+  width: 100%;
+}
+
+.logo{
+    width: 150px;
+    padding: 0px 15px 15px 0px;    
+}
+
+.navegacion{
+	width: 90%;
+	max-width: 1000px;
+	margin: auto;
+  padding:10px 0;
+  
+}
+
+input[type="search"]{
+	padding: 20px 10px 20px 10px;
+	padding-right: 35px;
+	border: none;
+  
+}
+
+.content-search{
+	width: 90%;
+	max-width: 1000px;
+	margin: auto;
+	background: #fff;
+	padding:0 10px;
+	padding-bottom: 5px;
+	max-height: 85%;
+	overflow-x: hidden;
+	display: none;
+}
+
+.content-table{
+	width: 80%;
+  height: auto;
+  max-height: 208px;
+  overflow-y: visible;
+  overflow-x: hidden;
+  display: none;
+}
+.content-table table{
+	width: 100%;
+  height: auto;
+  display: none;
+}
+
+tbody tr td a{
+  display: block;
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+  display: none;
+}
+
+tbody tr td a:hover{
+  background: #fff;
+}
+
+  body {
+    background-color: #f1f1f1;
+    padding: 20px;
+    font-family: 'Sofia';
+  }
+  
+  /* Center website */
+  .main {
+    max-width: 1000px;
+    margin: auto;
+  }
+  
+  h1 {
+    font-size: 50px;
+    word-break: break-all;
+  }
+  
+  /* Barra de menu */
+
+.row {
+    margin: 10px -16px;
+  }
+  
+  /* Add padding BETWEEN each column */
+  .row,
+  .row > .column {
+    padding: 8px;
+  }
+  
+  /* Create three equal columns that floats next to each other */
+  .column {
+    float: left;
+    width: 33.33%;
+    display: none; /* Hide all elements by default */
+  }
+  
+  /* Clear floats after rows */ 
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Content */
+  .content {
+    background-color: white;
+    padding: 10px;
+  }
+  
+  /* The "show" class is added to the filtered elements */
+  .show {
+    display: block;
+  }
+  
+  /* Estilo de botones */
+  .btn {
+    border: none;
+    outline: none;
+    padding: 12px 128px; 
+    background-color: white;
+    cursor: pointer;
+}
+  
+  .btn:hover {
+    background-color: steelblue;
+  }
+  
+  .btn.active {
+    background-color: steelblue;
+    color: white;
+}
+
+/* Click imagen*/
+
+.galeria {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.galeria__item {
+  width: 80%;
+  cursor: pointer;
+}
+@media (min-width:480px) {
+  .galeria__item {
+    width: 48%;
+    margin: 5px;
+  }
+}
+@media (min-width:768px) {
+  .galeria__item {
+    width: 30%;
+  }
+}
+@media (min-width:1024px) {
+  .galeria__item {
+    width: 20%;
+    margin: 15px;
+  }
+}
+
+.modal {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: steelblue; 
+  top: 0;
+  left: 0;  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal__img {
+  width: 70%;
+  max-width: 700px;
+ }
+
+.modal__boton {
+  width: 50px;
+  height: 50px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 25px;
+  font-family: monospace;
+  line-height: 50px;
+  text-align: center;
+  background: red;
+  border-radius: 50%;
+  cursor: pointer;
+  
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+/* SLIDES */
+
+</style>
+<body>
+   <header>
+       <div class="conten-header">
+           <img class="logo" src="/home/maryori/Documents/Frontend-clases/moricongos/img/007-unicorn.png" alt="logo">
+           <p>Gallery</p>
+           <div class="navegacion">
+             <input type="search" placeholder="Search. . ." id="inputBusqueda">
+             <div class="content-search"></div>
+               <div class="content-table"></div>
+               <table>
+                 <thead>
+                   <tr>
+                     <td></td>
+                   </tr>
+                 </thead>
+                 <tbody>
+                   <tr>
+                     <td><a href="#">Full moon</a> </td>
+                   </tr>
+                   <tr>
+                    <td><a href="#">Space Asteroid</a> </td>
+                  </tr>
+                  <tr>
+                    <td><a href="#">Comet</a> </td>
+                  </tr>
+                  <tr>
+                    <td><a href="#">Planets</a> </td>
+                  </tr>
+                  <tr>
+                    <td><a href="#">Humans on moon</a> </td>
+                  </tr>
+                  <tr>
+                    <td><a href="#">Night</a> </td>
+                  </tr>
+                  <tr>
+                    <td><a href="#">Unicorn</a> </td>
+                  </tr>
+                  <tr>
+                    <td><a href="#">Elephants</a> </td>
+                  </tr>
+                  <tr>
+                    <td><a href="#">Lake</a> </td>
+                  </tr>
+                 </tbody>
+
+               </table>
+             
+                          
+           </div>          
+       </div>
+   </header> 
+   <div id="myBtnContainer">
+    <button class="btn" onclick="filterSelection('all')"> Show all</button> <!-- btn active: para dejar boton activo-->   
+    <button class="btn" onclick="filterSelection('Space')"> Space</button>
+    <button class="btn" onclick="filterSelection('Unicorn')"> Unicorn</button>
+    <button class="btn" onclick="filterSelection('Nature')"> Nature</button>
+ </div>
+
+<!-- Imagenes -->   
+     <div class="container">
+      <ul class="galeria">
+            <div class="column Space">
+           
+              <div class="content">
+                 <li class="galeria__item"></li>
+                    <img src="https://cdn.travesiasdigital.com/wp-content/uploads/2019/05/meteorito-espacio-450x280.jpg" alt="Space" class="galeria__img" />
+                    <span>Comet</span>
+                </div> 
+                 
+            </div>
+            <div class="column Space">
+            
+                <li class="galeria__item"></li>
+                    <div class="content">
+                        <img src="https://rotativo.com.mx/assets//2017/10/paso-asteroide-cerca-tierra-prueba-alerta-colision-450x282.jpg" alt="Space" class="galeria__img"/>
+                        <span>Space Asteroid</span>
+                    </div> 
+                 
+            </div>      
+                  
+
+
+        <div class="column Space">
+          <li class="galeria__item"></li>
+                <div class="content">
+                    <img src="https://beyondinfinity.com.au/wp-content/uploads/2019/06/astronauts_lunar_craterv2-480x280.png" alt="Space" class="galeria__img"/>
+                    <span>Humans on moon</span>
+                </div>    
+         </div>    
+        <div class="column Space">
+          <li class="galeria__item"></li>
+                <div class="content">
+                    <img src="https://www.outtherecolorado.com/wp-content/uploads/2017/04/iStock-499869399-450x280.jpg" alt="Space" class="galeria__img"/>
+                    <span>Night</span>
+                </div>    
+         </div>
+
+       <div class="column Space">
+          <div class="content">
+              <li class="galeria__item"></li>
+                <img src="https://images.assetsdelivery.com/compings_v2/Fred12/Fred121408/Fred12140800067.jpg" alt="Space" class="galeria__img"/>
+                <span>Full Moon</span>
+           </div>
+        </div>
+   
+
+        <div class="column Unicorns">
+          <li class="galeria__item"></li>
+                <div class="content">
+                    <img src="https://www.jewelridersarchive.com/wp-content/uploads/2017/10/Unicorn-Coloring-Page-03-480x280.png" alt="Unicorn" class="galeria__img"/>
+                    <span>Unicorn</span>
+                </div>    
+            
+        </div>
+
+        <div class="column Nature">
+          <li class="galeria__item"></li>
+                <div class="content">
+                    <img src="https://d2l4159s3q6ni.cloudfront.net/resize/480x280/filters:format(webp)/s3/dam/photos/10/6e/b0/4e/3b4dd15ea560b380f3bcc1051cc993324a061a98b3e377022ab14106.jpg" alt="Nature" class="galeria__img"/>
+                    <span>Lake</span>
+                </div>    
+            
+        </div>
+
+        <div class="column Nature">
+          <li class="galeria__item"></li>
+                <div class="content">
+                    <img src="https://cdn.travesiasdigital.com/wp-content/uploads/2019/06/cuidar-elefantes-en-tailandia-450x280.jpg" alt="Nature" class="galeria__img"/>
+                    <span>Elephants</span>
+                </div>           
+        </div>
+      </ul> 
+        <footer>
+          <p><strong>© Copyright Maryori Sabalza 2020.</strong></p>
+      </footer>
+    </div>
+  
+<script src="js/search.js"></script>
+<script>
+    $('.galeria__img').click(function(e){
+  var img = e.target.src;
+  var modal = '<div class="modal" id="modal"><img src="'+ img + '" class="modal__img"><div class="modal__boton" id="modal__boton">X</div></div>';
+  $('body').append(modal);
+  $('#modal__boton').click(function(){
+    $('#modal').remove();
+  })
+});
+
+
+$(document).keyup(function(e){
+  if (e.which==27) {
+    $('#modal').remove();
+  }
+})
+</script>
+</body>
+</html>
+
+
+

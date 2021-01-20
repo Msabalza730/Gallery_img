@@ -1,0 +1,221 @@
+* {
+  box-sizing: border-box;
+}
+
+header{
+  height: 100px;
+  padding: 0px 300px 0px 300px;  /*top right buttom left*/
+  background-color: steelblue;
+}    
+
+/* TITULO*/
+body {
+  font-family: 'Sofia';font-size: 22px;
+  background-color: ivory;
+  
+}
+
+
+/* BARRA CABECERA */
+.conten-header{
+display: inline-flex;
+width: 100%;
+}
+
+.logo{
+  width: 150px;
+  padding: 0px 15px 15px 0px;    
+}
+
+.navegacion{
+width: 90%;
+max-width: 1000px;
+margin: auto;
+padding:10px 0;
+
+}
+
+input[type="search"]{
+padding: 20px 10px 20px 10px;
+padding-right: 35px;
+border: none;
+
+}
+
+.content-search{
+width: 90%;
+max-width: 1000px;
+margin: auto;
+background: #fff;
+padding:0 10px;
+padding-bottom: 5px;
+max-height: 85%;
+overflow-x: hidden;
+display: none;
+}
+
+.content-table{
+width: 80%;
+height: auto;
+max-height: 208px;
+overflow-y: visible;
+overflow-x: hidden;
+display: none;
+}
+.content-table table{
+width: 100%;
+height: auto;
+display: none;
+}
+
+tbody tr td a{
+display: block;
+color: white;
+padding: 10px;
+text-decoration: none;
+display: none;
+}
+
+tbody tr td a:hover{
+background: #fff;
+}
+
+body {
+  background-color: #f1f1f1;
+  padding: 20px;
+  font-family: 'Sofia';
+}
+
+/* Center website */
+.main {
+  max-width: 1000px;
+  margin: auto;
+}
+
+h1 {
+  font-size: 50px;
+  word-break: break-all;
+}
+
+/* Barra de menu */
+
+.row {
+  margin: 10px -16px;
+}
+
+/* Add padding BETWEEN each column */
+.row,
+.row > .column {
+  padding: 8px;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  display: none; /* Hide all elements by default */
+}
+
+/* Clear floats after rows */ 
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Content */
+.content {
+  background-color: white;
+  padding: 10px;
+}
+
+/* The "show" class is added to the filtered elements */
+.show {
+  display: block;
+}
+
+/* Estilo de botones */
+.btn {
+  border: none;
+  outline: none;
+  padding: 12px 128px; 
+  background-color: white;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: steelblue;
+}
+
+.btn.active {
+  background-color: steelblue;
+  color: white;
+}
+
+/* Click imagen*/
+
+.galeria {
+padding: 20px;
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+}
+
+.galeria__item {
+width: 80%;
+cursor: pointer;
+}
+@media (min-width:480px) {
+.galeria__item {
+  width: 48%;
+  margin: 5px;
+}
+}
+@media (min-width:768px) {
+.galeria__item {
+  width: 30%;
+}
+}
+@media (min-width:1024px) {
+.galeria__item {
+  width: 20%;
+  margin: 15px;
+}
+}
+
+.modal {
+position: fixed;
+width: 100%;
+height: 100vh;
+background: steelblue; 
+top: 0;
+left: 0;  
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.modal__img {
+width: 70%;
+max-width: 700px;
+}
+
+.modal__boton {
+width: 50px;
+height: 50px;
+color: #fff;
+font-weight: bold;
+font-size: 25px;
+font-family: monospace;
+line-height: 50px;
+text-align: center;
+background: red;
+border-radius: 50%;
+cursor: pointer;
+
+position: absolute;
+right: 10px;
+top: 10px;
+}
+
+/* SLIDES */
